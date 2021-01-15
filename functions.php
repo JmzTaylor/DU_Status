@@ -18,10 +18,7 @@ function getChecks() {
     $checks = array();
 
     for ($i=0; $i < count($output['checks']); $i++) {
-        $up = false;
-        if (trim($output['checks'][$i]['status']) == "up") {
-            $up = true;
-        }
+        $up = trim($output['checks'][$i]['status']) == "up";
         $checks[] = new check($output['checks'][$i]['name'], $up, $output['checks'][$i]['last_ping']);
     }
 
